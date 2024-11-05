@@ -154,6 +154,10 @@
       <elementName>LookUpTable</elementName>
       <elementAttributes>
         <entry>
+          <string>rotation</string>
+          <rotation rotation="3"/>
+        </entry>
+        <entry>
           <string>Label</string>
           <string>ID</string>
         </entry>
@@ -165,31 +169,27 @@
           <string>Inputs</string>
           <int>4</int>
         </entry>
-        <entry>
-          <string>rotation</string>
-          <rotation rotation="3"/>
-        </entry>
       </elementAttributes>
-      <pos x="580" y="1180"/>
+      <pos x="580" y="1060"/>
     </visualElement>
     <visualElement>
       <elementName>ROM</elementName>
       <elementAttributes>
         <entry>
-          <string>Label</string>
-          <string>PGM_mem</string>
-        </entry>
-        <entry>
           <string>AddrBits</string>
           <int>5</int>
         </entry>
         <entry>
-          <string>Bits</string>
-          <int>13</int>
-        </entry>
-        <entry>
           <string>rotation</string>
           <rotation rotation="3"/>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>PGM_mem</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>13</int>
         </entry>
       </elementAttributes>
       <pos x="560" y="940"/>
@@ -198,12 +198,12 @@
       <elementName>RAMDualPort</elementName>
       <elementAttributes>
         <entry>
-          <string>Label</string>
-          <string>RAM</string>
-        </entry>
-        <entry>
           <string>AddrBits</string>
           <int>8</int>
+        </entry>
+        <entry>
+          <string>Label</string>
+          <string>RAM</string>
         </entry>
         <entry>
           <string>Bits</string>
@@ -243,7 +243,7 @@ OOOO -&gt; Codigo de instrucao
 AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
         </entry>
       </elementAttributes>
-      <pos x="-60" y="960"/>
+      <pos x="-60" y="860"/>
     </visualElement>
     <visualElement>
       <elementName>Text</elementName>
@@ -255,6 +255,24 @@ ScratchPad memory</string>
         </entry>
       </elementAttributes>
       <pos x="1020" y="860"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Input Splitting</string>
+          <string>12</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>1,1,1,1,1,1,1,1,1,1,1,1</string>
+        </entry>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="3"/>
+        </entry>
+      </elementAttributes>
+      <pos x="540" y="1180"/>
     </visualElement>
   </visualElements>
   <wires>
@@ -545,6 +563,10 @@ ScratchPad memory</string>
     <wire>
       <p1 x="540" y="880"/>
       <p2 x="540" y="900"/>
+    </wire>
+    <wire>
+      <p1 x="540" y="1120"/>
+      <p2 x="540" y="1180"/>
     </wire>
   </wires>
   <measurementOrdering/>
