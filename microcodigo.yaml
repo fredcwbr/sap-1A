@@ -1,0 +1,13 @@
+# Codigo Fonte do Microcodigo 
+#
+# T0 - Fetch Inst
+#
+T0 PC_E RIns_E 
+#
+#  Instrucao LD ACC
+# LD Acc 
+TN+1 DAddr_E RRam_E 
+TN+1 DRam_E ACC_E
+TN+1 PCCNT_E
+TN+1 NXT_I
+
