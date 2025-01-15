@@ -30,13 +30,12 @@ with open(FMicroCodigo, mode='r') as csv_file:
         if row['Id'] not in ['x','I','X']:
             # despreza comentarios
             continue
-        print( list(row) )
         # cria o micro codigo
-        row['Instrucao']
-        row['Tempo']
+        I = row['Instrucao']
+        T = row['Tempo']
         # combina os 16 bits do barramento de controle
         #
-        x =   row[B] for B in bitsControle  
+        print( '{:04b}'.format(int(I)) , '{:03b}'.format(int(T)) , ''.join([ row[B] for B in bitsControle   ] ) )
         
         
         
