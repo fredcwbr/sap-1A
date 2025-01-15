@@ -1048,56 +1048,6 @@ ScratchPad memory</string>
       <elementAttributes/>
       <pos x="720" y="1220"/>
     </visualElement>
-    <visualElement>
-      <elementName>LED</elementName>
-      <elementAttributes>
-        <entry>
-          <string>rotation</string>
-          <rotation rotation="1"/>
-        </entry>
-      </elementAttributes>
-      <pos x="80" y="1040"/>
-    </visualElement>
-    <visualElement>
-      <elementName>LED</elementName>
-      <elementAttributes>
-        <entry>
-          <string>rotation</string>
-          <rotation rotation="1"/>
-        </entry>
-      </elementAttributes>
-      <pos x="120" y="1040"/>
-    </visualElement>
-    <visualElement>
-      <elementName>LED</elementName>
-      <elementAttributes>
-        <entry>
-          <string>rotation</string>
-          <rotation rotation="1"/>
-        </entry>
-      </elementAttributes>
-      <pos x="160" y="1040"/>
-    </visualElement>
-    <visualElement>
-      <elementName>LED</elementName>
-      <elementAttributes>
-        <entry>
-          <string>rotation</string>
-          <rotation rotation="1"/>
-        </entry>
-      </elementAttributes>
-      <pos x="200" y="1040"/>
-    </visualElement>
-    <visualElement>
-      <elementName>LED</elementName>
-      <elementAttributes>
-        <entry>
-          <string>rotation</string>
-          <rotation rotation="1"/>
-        </entry>
-      </elementAttributes>
-      <pos x="240" y="1040"/>
-    </visualElement>
   </visualElements>
   <wires>
     <wire>
@@ -1737,10 +1687,6 @@ ScratchPad memory</string>
       <p2 x="560" y="680"/>
     </wire>
     <wire>
-      <p1 x="180" y="1160"/>
-      <p2 x="180" y="1220"/>
-    </wire>
-    <wire>
       <p1 x="820" y="200"/>
       <p2 x="820" y="260"/>
     </wire>
@@ -1751,6 +1697,10 @@ ScratchPad memory</string>
     <wire>
       <p1 x="500" y="800"/>
       <p2 x="500" y="920"/>
+    </wire>
+    <wire>
+      <p1 x="180" y="1160"/>
+      <p2 x="180" y="1220"/>
     </wire>
     <wire>
       <p1 x="440" y="1160"/>

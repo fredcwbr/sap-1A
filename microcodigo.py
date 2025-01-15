@@ -5,6 +5,7 @@ import sys
 
 arquivoMicrocodigo = "microcodigo.hex"
 ih = IntelHex()
+ih.padding = 0x00 
 
 FMicroCodigo = 'microcodigo.csv'
 
@@ -47,12 +48,12 @@ with open(FMicroCodigo, mode='r') as csv_file:
         T = row['Tempo']
         # combina os 16 bits do barramento de controle
         #
-        uCodigo = [0,0,0]
+        uCodigo = [0,0]
         addruInstr = '0b{:04b}{:03b}'.format(int(I),int(T))
         for BT in range(0,2):
             bControle = '0b'+''.join([ row[bitsControle[(BT*8)+ndx]] for ndx in range(0,8) ])
             uCodigo[BT] = int(bControle, 2)
-        print(  int(addruInstr,2) , addruInstr ,'{:04b}'.format(int(I)) ,bControle, '{:03b}'.format(int(T)) , [ '{:02X}'.format(X) for X in uCodigo ] )
+        print(  int(addruInstr,2) , addruInstr ,'{:04b}'.format(int(I)) ,bControle, '{:03b}'.format(int(T)) , uCodigo  )
 
         for I in range(len(uCodigo)):
             ih[int(addruInstr,2)+int(T)*len(uCodigo)+I] = uCodigo[I]
