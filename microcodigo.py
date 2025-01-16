@@ -4,8 +4,38 @@ import sys
 
 
 arquivoMicrocodigo = "microcodigo.hex"
-ih = IntelHex()
-ih.padding = 0x00 
+#ih = IntelHex()
+#ih.padding = 0x00 
+
+"""
+Formato do arquivo hex do Digital HNeeman
+v2.0 raw
+>> uma linha por endereco
+
+"""
+class hneemanHex:
+    def __init__(self, fname):
+        self.conteudo = {}
+        self.fname = fname
+
+    def addValue(self, addr, value):
+        self.conteudo[addr] = value
+
+    def geraHex(self):
+        with open(self.fname,'w') as F:
+           print( 'v2.0 raw', file=F )
+           Add = 0
+           print( dict(sorted(self.conteudo.items())) )
+           for A, V in dict(sorted(self.conteudo.items())).items():
+               if A != Add:
+                    print( '{}*0'.format( A - Add ) , file=F)
+                    Add = A
+               print( '{:4X}'.format( V ) , file=F)
+               Add = Add + 1
+                
+            
+     
+
 
 FMicroCodigo = 'microcodigo.csv'
 
@@ -35,7 +65,7 @@ nBitsInstrucao = 4
 # o RANGE no python é de dominio aberto , ... até (n-1) comecando em 0 ... 
 
 
-F = open('microcodigo.hex','w')
+F = hneemanHex(arquivoMicrocodigo)
 with open(FMicroCodigo, mode='r') as csv_file:
     csv_reader = csv.DictReader(csv_file,  delimiter='\t')
     line_count = 0
@@ -48,18 +78,11 @@ with open(FMicroCodigo, mode='r') as csv_file:
         T = row['Tempo']
         # combina os 16 bits do barramento de controle
         #
-        uCodigo = [0,0]
-        addruInstr = '0b{:04b}{:03b}'.format(int(I),int(T))
-        for BT in range(0,2):
-            bControle = '0b'+''.join([ row[bitsControle[(BT*8)+ndx]] for ndx in range(0,8) ])
-            uCodigo[BT] = int(bControle, 2)
-        print(  int(addruInstr,2) , addruInstr ,'{:04b}'.format(int(I)) ,bControle, '{:03b}'.format(int(T)) , uCodigo  )
 
-        for I in range(len(uCodigo)):
-            ih[int(addruInstr,2)+int(T)*len(uCodigo)+I] = uCodigo[I]
+        addruInstr = int( '0b{:04b}{:03b}'.format(int(I),int(T)) , 2)
+        bControle = '0b'+''.join([ row[bitsControle[(BT*8)+ndx]] for BT in range(0,2) for ndx in range(0,8) ])
+        print(  addruInstr , addruInstr ,'{:04b}'.format(int(I)) ,bControle, '{:03b}'.format(int(T)) ,bControle  )
+        F.addValue( addruInstr,  int(bControle, 2) )
+F.geraHex()
 
-ih.write_hex_file(sys.stdout)
-ih.write_hex_file(arquivoMicrocodigo)
-        
-        
     
