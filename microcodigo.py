@@ -1,5 +1,4 @@
 import csv
-from intelhex import IntelHex
 import sys
 
 
@@ -64,8 +63,9 @@ nBitsInstrucao = 4
 # Total de instrucoes possiveis >> 2^nBitsInstrucao -1 .
 # o RANGE no python é de dominio aberto , ... até (n-1) comecando em 0 ... 
 
-
 F = hneemanHex(arquivoMicrocodigo)
+
+instrPopulados = []
 with open(FMicroCodigo, mode='r') as csv_file:
     csv_reader = csv.DictReader(csv_file,  delimiter='\t')
     line_count = 0
@@ -75,14 +75,28 @@ with open(FMicroCodigo, mode='r') as csv_file:
             continue
         # cria o micro codigo
         I = row['Instrucao']
+        instrPopulados.append(int(I))
         T = row['Tempo']
         # combina os 16 bits do barramento de controle
-        #
-
+        #                
         addruInstr = int( '0b{:04b}{:03b}'.format(int(I),int(T)) , 2)
-        bControle = '0b'+''.join([ row[bitsControle[(BT*8)+ndx]] for BT in range(0,2) for ndx in range(0,8) ])
-        print(  addruInstr , addruInstr ,'{:04b}'.format(int(I)) ,bControle, '{:03b}'.format(int(T)) ,bControle  )
+
+        for BT in [1,0]:
+                print( [ row[bitsControle[(BT*8)+ndx-1]] for ndx in range(8,0,-1) ] )
+                
+                # bControle = '0b'+''.join([ row[bitsControle[(BT*8)+ndx]] ])
+        bControle = '0b'+''.join([ row[bitsControle[(BT*8)+ndx-1]] for BT in [1,0] for ndx in range(8,0,-1) ])                
+        # bControle = '0b'+''.join([ row[bitsControle[(BT*8)+ndx]] for BT in [1,0] for ndx in range(0,8) ])
+        
+        print(  '{:04b}'.format(int(I)), addruInstr , addruInstr ,'{:04b}'.format(int(I)) ,bControle, '{:03b}'.format(int(T)) ,bControle  )
         F.addValue( addruInstr,  int(bControle, 2) )
+
+S = [ X for X in range(16) if X not in instrPopulados ]
+for I in S:
+    addruInstr = int( '0b{:04b}{:03b}'.format(int(I),0) , 2)
+    F.addValue( addruInstr,  0b10100 )
+    
+        
 F.geraHex()
 
     
