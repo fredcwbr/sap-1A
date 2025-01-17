@@ -17,10 +17,6 @@
       <elementName>Clock</elementName>
       <elementAttributes>
         <entry>
-          <string>runRealTime</string>
-          <boolean>true</boolean>
-        </entry>
-        <entry>
           <string>Label</string>
           <string>Base_Clk</string>
         </entry>
@@ -35,7 +31,7 @@
           <int>0</int>
         </entry>
       </elementAttributes>
-      <pos x="780" y="60"/>
+      <pos x="100" y="400"/>
     </visualElement>
     <visualElement>
       <elementName>Seven-Seg-Hex</elementName>
@@ -45,26 +41,30 @@
           <int>0</int>
         </entry>
       </elementAttributes>
-      <pos x="840" y="60"/>
+      <pos x="160" y="400"/>
     </visualElement>
     <visualElement>
       <elementName>Splitter</elementName>
       <elementAttributes>
         <entry>
+          <string>rotation</string>
+          <rotation rotation="2"/>
+        </entry>
+        <entry>
           <string>Input Splitting</string>
-          <string>8</string>
+          <string>6,1,1</string>
         </entry>
         <entry>
           <string>Output Splitting</string>
           <string>4,4</string>
         </entry>
       </elementAttributes>
-      <pos x="760" y="240"/>
+      <pos x="260" y="600"/>
     </visualElement>
     <visualElement>
       <elementName>Ground</elementName>
       <elementAttributes/>
-      <pos x="960" y="240"/>
+      <pos x="220" y="640"/>
     </visualElement>
     <visualElement>
       <elementName>sapRegX.dig</elementName>
@@ -107,9 +107,11 @@
         </entry>
         <entry>
           <string>Data</string>
-          <data>14,7*0,14,60,482,8,4*0,14,a0,402,8,4*0,14,60,2,8,4*0,14,8420,2
-,8,4*0,14,7*0,14,7*0,14,7*0,14,7*0,14,7*0,14,7*0,14,7*0,14,7*0
-,14,7*0,14,7*0,14</data>
+          <data>14,7*0,2014,2060,2482,2008,4*2000,2014,20a0,2002,2008,4*2000,2014
+,2062,2008,5*2000,2014,2000,a420,2002,2008,2000,2000,2000,2014
+,2060,2500,2002,2008,2000,2000,2000,2014,2060,a600,2002,2008,2000,2000,2000
+,14,7*0,14,7*0,14,7*0,14,7*0,14,7*0,14,7*0,14,7*0,14,7*0,2014
+,2008,6*2000</data>
         </entry>
         <entry>
           <string>Inputs</string>
@@ -139,7 +141,7 @@
         </entry>
         <entry>
           <string>Data</string>
-          <data>223,334,1,13,1,1,1</data>
+          <data>223,334,113,134,221,115,246,225,256</data>
         </entry>
       </elementAttributes>
       <pos x="560" y="680"/>
@@ -175,7 +177,7 @@ OOOO -&gt; Codigo de instrucao
 AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
         </entry>
       </elementAttributes>
-      <pos x="-140" y="480"/>
+      <pos x="-480" y="60"/>
     </visualElement>
     <visualElement>
       <elementName>Splitter</elementName>
@@ -213,7 +215,7 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
           <string>ALU_dsp</string>
         </entry>
       </elementAttributes>
-      <pos x="1180" y="240"/>
+      <pos x="1180" y="360"/>
     </visualElement>
     <visualElement>
       <elementName>Seven-Seg-Hex</elementName>
@@ -223,7 +225,7 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
           <int>0</int>
         </entry>
       </elementAttributes>
-      <pos x="1080" y="60"/>
+      <pos x="1080" y="180"/>
     </visualElement>
     <visualElement>
       <elementName>Seven-Seg-Hex</elementName>
@@ -233,7 +235,7 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
           <int>0</int>
         </entry>
       </elementAttributes>
-      <pos x="1020" y="60"/>
+      <pos x="1020" y="180"/>
     </visualElement>
     <visualElement>
       <elementName>Splitter</elementName>
@@ -255,12 +257,12 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
           <string>4,4</string>
         </entry>
       </elementAttributes>
-      <pos x="1120" y="240"/>
+      <pos x="1120" y="360"/>
     </visualElement>
     <visualElement>
       <elementName>Ground</elementName>
       <elementAttributes/>
-      <pos x="1260" y="300"/>
+      <pos x="1260" y="420"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -285,7 +287,7 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
           <string>Reg_B</string>
         </entry>
       </elementAttributes>
-      <pos x="1040" y="520"/>
+      <pos x="1140" y="500"/>
     </visualElement>
     <visualElement>
       <elementName>Splitter</elementName>
@@ -569,7 +571,7 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
           <string>ALU_RSLTe</string>
         </entry>
       </elementAttributes>
-      <pos x="980" y="520"/>
+      <pos x="1080" y="500"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -583,7 +585,7 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
           <string>ALU_OUTe</string>
         </entry>
       </elementAttributes>
-      <pos x="1000" y="600"/>
+      <pos x="1100" y="580"/>
     </visualElement>
     <visualElement>
       <elementName>Tunnel</elementName>
@@ -1156,7 +1158,7 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
           <int>0</int>
         </entry>
       </elementAttributes>
-      <pos x="720" y="460"/>
+      <pos x="720" y="440"/>
     </visualElement>
     <visualElement>
       <elementName>Seven-Seg-Hex</elementName>
@@ -1166,7 +1168,7 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
           <int>0</int>
         </entry>
       </elementAttributes>
-      <pos x="780" y="460"/>
+      <pos x="780" y="440"/>
     </visualElement>
     <visualElement>
       <elementName>Splitter</elementName>
@@ -1180,12 +1182,12 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
           <string>4,4</string>
         </entry>
       </elementAttributes>
-      <pos x="700" y="640"/>
+      <pos x="700" y="620"/>
     </visualElement>
     <visualElement>
       <elementName>Ground</elementName>
       <elementAttributes/>
-      <pos x="900" y="640"/>
+      <pos x="900" y="620"/>
     </visualElement>
     <visualElement>
       <elementName>D_FF_AS</elementName>
@@ -1197,6 +1199,16 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
       <elementAttributes/>
       <pos x="-120" y="400"/>
     </visualElement>
+    <visualElement>
+      <elementName>LED</elementName>
+      <elementAttributes/>
+      <pos x="1140" y="600"/>
+    </visualElement>
+    <visualElement>
+      <elementName>LED</elementName>
+      <elementAttributes/>
+      <pos x="1120" y="480"/>
+    </visualElement>
   </visualElements>
   <wires>
     <wire>
@@ -1205,15 +1217,215 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
     </wire>
     <wire>
       <p1 x="720" y="640"/>
-      <p2 x="820" y="640"/>
-    </wire>
-    <wire>
-      <p1 x="660" y="640"/>
-      <p2 x="700" y="640"/>
+      <p2 x="760" y="640"/>
     </wire>
     <wire>
       <p1 x="700" y="1280"/>
       <p2 x="820" y="1280"/>
+    </wire>
+    <wire>
+      <p1 x="380" y="260"/>
+      <p2 x="460" y="260"/>
+    </wire>
+    <wire>
+      <p1 x="-120" y="260"/>
+      <p2 x="-80" y="260"/>
+    </wire>
+    <wire>
+      <p1 x="960" y="900"/>
+      <p2 x="1100" y="900"/>
+    </wire>
+    <wire>
+      <p1 x="0" y="900"/>
+      <p2 x="60" y="900"/>
+    </wire>
+    <wire>
+      <p1 x="460" y="520"/>
+      <p2 x="520" y="520"/>
+    </wire>
+    <wire>
+      <p1 x="540" y="520"/>
+      <p2 x="660" y="520"/>
+    </wire>
+    <wire>
+      <p1 x="1200" y="520"/>
+      <p2 x="1240" y="520"/>
+    </wire>
+    <wire>
+      <p1 x="1020" y="520"/>
+      <p2 x="1140" y="520"/>
+    </wire>
+    <wire>
+      <p1 x="880" y="780"/>
+      <p2 x="900" y="780"/>
+    </wire>
+    <wire>
+      <p1 x="600" y="780"/>
+      <p2 x="620" y="780"/>
+    </wire>
+    <wire>
+      <p1 x="400" y="140"/>
+      <p2 x="660" y="140"/>
+    </wire>
+    <wire>
+      <p1 x="820" y="400"/>
+      <p2 x="840" y="400"/>
+    </wire>
+    <wire>
+      <p1 x="660" y="400"/>
+      <p2 x="760" y="400"/>
+    </wire>
+    <wire>
+      <p1 x="900" y="400"/>
+      <p2 x="940" y="400"/>
+    </wire>
+    <wire>
+      <p1 x="1080" y="400"/>
+      <p2 x="1140" y="400"/>
+    </wire>
+    <wire>
+      <p1 x="1140" y="400"/>
+      <p2 x="1260" y="400"/>
+    </wire>
+    <wire>
+      <p1 x="880" y="1300"/>
+      <p2 x="940" y="1300"/>
+    </wire>
+    <wire>
+      <p1 x="660" y="660"/>
+      <p2 x="1240" y="660"/>
+    </wire>
+    <wire>
+      <p1 x="360" y="660"/>
+      <p2 x="560" y="660"/>
+    </wire>
+    <wire>
+      <p1 x="360" y="280"/>
+      <p2 x="460" y="280"/>
+    </wire>
+    <wire>
+      <p1 x="520" y="280"/>
+      <p2 x="660" y="280"/>
+    </wire>
+    <wire>
+      <p1 x="-80" y="280"/>
+      <p2 x="300" y="280"/>
+    </wire>
+    <wire>
+      <p1 x="960" y="920"/>
+      <p2 x="1100" y="920"/>
+    </wire>
+    <wire>
+      <p1 x="120" y="920"/>
+      <p2 x="180" y="920"/>
+    </wire>
+    <wire>
+      <p1 x="660" y="1180"/>
+      <p2 x="800" y="1180"/>
+    </wire>
+    <wire>
+      <p1 x="800" y="1180"/>
+      <p2 x="820" y="1180"/>
+    </wire>
+    <wire>
+      <p1 x="1120" y="540"/>
+      <p2 x="1140" y="540"/>
+    </wire>
+    <wire>
+      <p1 x="760" y="800"/>
+      <p2 x="780" y="800"/>
+    </wire>
+    <wire>
+      <p1 x="340" y="800"/>
+      <p2 x="360" y="800"/>
+    </wire>
+    <wire>
+      <p1 x="440" y="800"/>
+      <p2 x="520" y="800"/>
+    </wire>
+    <wire>
+      <p1 x="880" y="800"/>
+      <p2 x="960" y="800"/>
+    </wire>
+    <wire>
+      <p1 x="840" y="420"/>
+      <p2 x="940" y="420"/>
+    </wire>
+    <wire>
+      <p1 x="740" y="420"/>
+      <p2 x="760" y="420"/>
+    </wire>
+    <wire>
+      <p1 x="180" y="420"/>
+      <p2 x="260" y="420"/>
+    </wire>
+    <wire>
+      <p1 x="260" y="420"/>
+      <p2 x="440" y="420"/>
+    </wire>
+    <wire>
+      <p1 x="660" y="1320"/>
+      <p2 x="760" y="1320"/>
+    </wire>
+    <wire>
+      <p1 x="760" y="1320"/>
+      <p2 x="820" y="1320"/>
+    </wire>
+    <wire>
+      <p1 x="300" y="300"/>
+      <p2 x="340" y="300"/>
+    </wire>
+    <wire>
+      <p1 x="340" y="300"/>
+      <p2 x="460" y="300"/>
+    </wire>
+    <wire>
+      <p1 x="0" y="940"/>
+      <p2 x="60" y="940"/>
+    </wire>
+    <wire>
+      <p1 x="880" y="1200"/>
+      <p2 x="940" y="1200"/>
+    </wire>
+    <wire>
+      <p1 x="160" y="560"/>
+      <p2 x="220" y="560"/>
+    </wire>
+    <wire>
+      <p1 x="220" y="560"/>
+      <p2 x="260" y="560"/>
+    </wire>
+    <wire>
+      <p1 x="840" y="820"/>
+      <p2 x="860" y="820"/>
+    </wire>
+    <wire>
+      <p1 x="640" y="820"/>
+      <p2 x="660" y="820"/>
+    </wire>
+    <wire>
+      <p1 x="540" y="820"/>
+      <p2 x="600" y="820"/>
+    </wire>
+    <wire>
+      <p1 x="660" y="820"/>
+      <p2 x="780" y="820"/>
+    </wire>
+    <wire>
+      <p1 x="860" y="820"/>
+      <p2 x="880" y="820"/>
+    </wire>
+    <wire>
+      <p1 x="660" y="440"/>
+      <p2 x="940" y="440"/>
+    </wire>
+    <wire>
+      <p1 x="1000" y="440"/>
+      <p2 x="1020" y="440"/>
+    </wire>
+    <wire>
+      <p1 x="1020" y="440"/>
+      <p2 x="1080" y="440"/>
     </wire>
     <wire>
       <p1 x="860" y="320"/>
@@ -1232,26 +1444,6 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
       <p2 x="140" y="320"/>
     </wire>
     <wire>
-      <p1 x="380" y="260"/>
-      <p2 x="460" y="260"/>
-    </wire>
-    <wire>
-      <p1 x="780" y="260"/>
-      <p2 x="820" y="260"/>
-    </wire>
-    <wire>
-      <p1 x="-120" y="260"/>
-      <p2 x="-80" y="260"/>
-    </wire>
-    <wire>
-      <p1 x="960" y="900"/>
-      <p2 x="1100" y="900"/>
-    </wire>
-    <wire>
-      <p1 x="0" y="900"/>
-      <p2 x="60" y="900"/>
-    </wire>
-    <wire>
       <p1 x="760" y="1220"/>
       <p2 x="800" y="1220"/>
     </wire>
@@ -1266,6 +1458,14 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
     <wire>
       <p1 x="800" y="1220"/>
       <p2 x="820" y="1220"/>
+    </wire>
+    <wire>
+      <p1 x="1100" y="580"/>
+      <p2 x="1120" y="580"/>
+    </wire>
+    <wire>
+      <p1 x="140" y="580"/>
+      <p2 x="240" y="580"/>
     </wire>
     <wire>
       <p1 x="120" y="840"/>
@@ -1292,32 +1492,8 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
       <p2 x="580" y="840"/>
     </wire>
     <wire>
-      <p1 x="980" y="520"/>
-      <p2 x="1040" y="520"/>
-    </wire>
-    <wire>
-      <p1 x="460" y="520"/>
-      <p2 x="520" y="520"/>
-    </wire>
-    <wire>
-      <p1 x="540" y="520"/>
-      <p2 x="660" y="520"/>
-    </wire>
-    <wire>
       <p1 x="160" y="200"/>
       <p2 x="380" y="200"/>
-    </wire>
-    <wire>
-      <p1 x="880" y="780"/>
-      <p2 x="900" y="780"/>
-    </wire>
-    <wire>
-      <p1 x="600" y="780"/>
-      <p2 x="620" y="780"/>
-    </wire>
-    <wire>
-      <p1 x="400" y="140"/>
-      <p2 x="660" y="140"/>
     </wire>
     <wire>
       <p1 x="860" y="460"/>
@@ -1332,28 +1508,8 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
       <p2 x="820" y="1100"/>
     </wire>
     <wire>
-      <p1 x="820" y="400"/>
-      <p2 x="840" y="400"/>
-    </wire>
-    <wire>
-      <p1 x="660" y="400"/>
-      <p2 x="760" y="400"/>
-    </wire>
-    <wire>
-      <p1 x="900" y="400"/>
-      <p2 x="940" y="400"/>
-    </wire>
-    <wire>
       <p1 x="760" y="1360"/>
       <p2 x="820" y="1360"/>
-    </wire>
-    <wire>
-      <p1 x="720" y="660"/>
-      <p2 x="760" y="660"/>
-    </wire>
-    <wire>
-      <p1 x="880" y="1300"/>
-      <p2 x="940" y="1300"/>
     </wire>
     <wire>
       <p1 x="340" y="340"/>
@@ -1372,72 +1528,32 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
       <p2 x="-40" y="340"/>
     </wire>
     <wire>
-      <p1 x="1080" y="280"/>
-      <p2 x="1140" y="280"/>
+      <p1 x="1060" y="340"/>
+      <p2 x="1100" y="340"/>
     </wire>
     <wire>
-      <p1 x="360" y="280"/>
-      <p2 x="460" y="280"/>
+      <p1 x="780" y="600"/>
+      <p2 x="840" y="600"/>
     </wire>
     <wire>
-      <p1 x="520" y="280"/>
-      <p2 x="540" y="280"/>
+      <p1 x="1120" y="600"/>
+      <p2 x="1140" y="600"/>
     </wire>
     <wire>
-      <p1 x="-80" y="280"/>
-      <p2 x="300" y="280"/>
+      <p1 x="200" y="600"/>
+      <p2 x="240" y="600"/>
     </wire>
     <wire>
-      <p1 x="540" y="280"/>
-      <p2 x="660" y="280"/>
+      <p1 x="260" y="600"/>
+      <p2 x="360" y="600"/>
     </wire>
     <wire>
-      <p1 x="1140" y="280"/>
-      <p2 x="1260" y="280"/>
-    </wire>
-    <wire>
-      <p1 x="960" y="920"/>
-      <p2 x="1100" y="920"/>
-    </wire>
-    <wire>
-      <p1 x="120" y="920"/>
-      <p2 x="180" y="920"/>
-    </wire>
-    <wire>
-      <p1 x="1000" y="600"/>
-      <p2 x="1020" y="600"/>
-    </wire>
-    <wire>
-      <p1 x="660" y="1180"/>
-      <p2 x="800" y="1180"/>
-    </wire>
-    <wire>
-      <p1 x="800" y="1180"/>
-      <p2 x="820" y="1180"/>
-    </wire>
-    <wire>
-      <p1 x="1100" y="540"/>
-      <p2 x="1140" y="540"/>
-    </wire>
-    <wire>
-      <p1 x="1020" y="540"/>
-      <p2 x="1040" y="540"/>
-    </wire>
-    <wire>
-      <p1 x="1060" y="220"/>
-      <p2 x="1100" y="220"/>
-    </wire>
-    <wire>
-      <p1 x="840" y="220"/>
-      <p2 x="900" y="220"/>
+      <p1 x="840" y="600"/>
+      <p2 x="900" y="600"/>
     </wire>
     <wire>
       <p1 x="220" y="220"/>
       <p2 x="240" y="220"/>
-    </wire>
-    <wire>
-      <p1 x="900" y="220"/>
-      <p2 x="960" y="220"/>
     </wire>
     <wire>
       <p1 x="1040" y="860"/>
@@ -1448,22 +1564,6 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
       <p2 x="220" y="860"/>
     </wire>
     <wire>
-      <p1 x="760" y="800"/>
-      <p2 x="780" y="800"/>
-    </wire>
-    <wire>
-      <p1 x="340" y="800"/>
-      <p2 x="360" y="800"/>
-    </wire>
-    <wire>
-      <p1 x="440" y="800"/>
-      <p2 x="520" y="800"/>
-    </wire>
-    <wire>
-      <p1 x="880" y="800"/>
-      <p2 x="960" y="800"/>
-    </wire>
-    <wire>
       <p1 x="880" y="1120"/>
       <p2 x="940" y="1120"/>
     </wire>
@@ -1472,20 +1572,8 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
       <p2 x="560" y="480"/>
     </wire>
     <wire>
-      <p1 x="840" y="420"/>
-      <p2 x="940" y="420"/>
-    </wire>
-    <wire>
-      <p1 x="740" y="420"/>
-      <p2 x="760" y="420"/>
-    </wire>
-    <wire>
-      <p1 x="180" y="420"/>
-      <p2 x="260" y="420"/>
-    </wire>
-    <wire>
-      <p1 x="260" y="420"/>
-      <p2 x="440" y="420"/>
+      <p1 x="1100" y="480"/>
+      <p2 x="1120" y="480"/>
     </wire>
     <wire>
       <p1 x="880" y="1380"/>
@@ -1496,14 +1584,6 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
       <p2 x="380" y="740"/>
     </wire>
     <wire>
-      <p1 x="660" y="1320"/>
-      <p2 x="760" y="1320"/>
-    </wire>
-    <wire>
-      <p1 x="760" y="1320"/>
-      <p2 x="820" y="1320"/>
-    </wire>
-    <wire>
       <p1 x="240" y="360"/>
       <p2 x="260" y="360"/>
     </wire>
@@ -1512,36 +1592,20 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
       <p2 x="-40" y="360"/>
     </wire>
     <wire>
-      <p1 x="780" y="620"/>
-      <p2 x="840" y="620"/>
+      <p1 x="1120" y="360"/>
+      <p2 x="1180" y="360"/>
+    </wire>
+    <wire>
+      <p1 x="720" y="620"/>
+      <p2 x="820" y="620"/>
+    </wire>
+    <wire>
+      <p1 x="660" y="620"/>
+      <p2 x="700" y="620"/>
     </wire>
     <wire>
       <p1 x="540" y="620"/>
       <p2 x="560" y="620"/>
-    </wire>
-    <wire>
-      <p1 x="840" y="620"/>
-      <p2 x="900" y="620"/>
-    </wire>
-    <wire>
-      <p1 x="300" y="300"/>
-      <p2 x="340" y="300"/>
-    </wire>
-    <wire>
-      <p1 x="340" y="300"/>
-      <p2 x="460" y="300"/>
-    </wire>
-    <wire>
-      <p1 x="0" y="940"/>
-      <p2 x="60" y="940"/>
-    </wire>
-    <wire>
-      <p1 x="880" y="1200"/>
-      <p2 x="940" y="1200"/>
-    </wire>
-    <wire>
-      <p1 x="1020" y="560"/>
-      <p2 x="1040" y="560"/>
     </wire>
     <wire>
       <p1 x="740" y="880"/>
@@ -1560,10 +1624,6 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
       <p2 x="220" y="880"/>
     </wire>
     <wire>
-      <p1 x="1120" y="240"/>
-      <p2 x="1180" y="240"/>
-    </wire>
-    <wire>
       <p1 x="160" y="240"/>
       <p2 x="220" y="240"/>
     </wire>
@@ -1572,36 +1632,16 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
       <p2 x="460" y="240"/>
     </wire>
     <wire>
-      <p1 x="780" y="240"/>
-      <p2 x="880" y="240"/>
-    </wire>
-    <wire>
-      <p1 x="540" y="240"/>
-      <p2 x="760" y="240"/>
-    </wire>
-    <wire>
       <p1 x="220" y="240"/>
       <p2 x="360" y="240"/>
     </wire>
     <wire>
-      <p1 x="840" y="820"/>
-      <p2 x="860" y="820"/>
+      <p1 x="1080" y="500"/>
+      <p2 x="1100" y="500"/>
     </wire>
     <wire>
-      <p1 x="640" y="820"/>
-      <p2 x="660" y="820"/>
-    </wire>
-    <wire>
-      <p1 x="540" y="820"/>
-      <p2 x="600" y="820"/>
-    </wire>
-    <wire>
-      <p1 x="660" y="820"/>
-      <p2 x="780" y="820"/>
-    </wire>
-    <wire>
-      <p1 x="860" y="820"/>
-      <p2 x="880" y="820"/>
+      <p1 x="1100" y="500"/>
+      <p2 x="1140" y="500"/>
     </wire>
     <wire>
       <p1 x="800" y="1140"/>
@@ -1610,18 +1650,6 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
     <wire>
       <p1 x="440" y="1140"/>
       <p2 x="520" y="1140"/>
-    </wire>
-    <wire>
-      <p1 x="660" y="440"/>
-      <p2 x="940" y="440"/>
-    </wire>
-    <wire>
-      <p1 x="1000" y="440"/>
-      <p2 x="1020" y="440"/>
-    </wire>
-    <wire>
-      <p1 x="1020" y="440"/>
-      <p2 x="1080" y="440"/>
     </wire>
     <wire>
       <p1 x="520" y="760"/>
@@ -1660,10 +1688,6 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
       <p2 x="1200" y="1020"/>
     </wire>
     <wire>
-      <p1 x="900" y="200"/>
-      <p2 x="900" y="220"/>
-    </wire>
-    <wire>
       <p1 x="900" y="340"/>
       <p2 x="900" y="400"/>
     </wire>
@@ -1672,8 +1696,8 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
       <p2 x="900" y="780"/>
     </wire>
     <wire>
-      <p1 x="900" y="620"/>
-      <p2 x="900" y="640"/>
+      <p1 x="900" y="600"/>
+      <p2 x="900" y="620"/>
     </wire>
     <wire>
       <p1 x="260" y="1160"/>
@@ -1682,6 +1706,10 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
     <wire>
       <p1 x="260" y="420"/>
       <p2 x="260" y="460"/>
+    </wire>
+    <wire>
+      <p1 x="260" y="560"/>
+      <p2 x="260" y="580"/>
     </wire>
     <wire>
       <p1 x="520" y="520"/>
@@ -1716,8 +1744,12 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
       <p2 x="140" y="380"/>
     </wire>
     <wire>
-      <p1 x="780" y="600"/>
-      <p2 x="780" y="620"/>
+      <p1 x="140" y="540"/>
+      <p2 x="140" y="580"/>
+    </wire>
+    <wire>
+      <p1 x="780" y="580"/>
+      <p2 x="780" y="600"/>
     </wire>
     <wire>
       <p1 x="400" y="140"/>
@@ -1736,7 +1768,11 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
       <p2 x="660" y="280"/>
     </wire>
     <wire>
-      <p1 x="660" y="640"/>
+      <p1 x="660" y="620"/>
+      <p2 x="660" y="660"/>
+    </wire>
+    <wire>
+      <p1 x="660" y="660"/>
       <p2 x="660" y="820"/>
     </wire>
     <wire>
@@ -1757,7 +1793,7 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
     </wire>
     <wire>
       <p1 x="660" y="520"/>
-      <p2 x="660" y="640"/>
+      <p2 x="660" y="620"/>
     </wire>
     <wire>
       <p1 x="920" y="320"/>
@@ -1792,10 +1828,6 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
       <p2 x="540" y="540"/>
     </wire>
     <wire>
-      <p1 x="540" y="240"/>
-      <p2 x="540" y="280"/>
-    </wire>
-    <wire>
       <p1 x="800" y="1140"/>
       <p2 x="800" y="1180"/>
     </wire>
@@ -1808,8 +1840,12 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
       <p2 x="160" y="1220"/>
     </wire>
     <wire>
-      <p1 x="1060" y="200"/>
-      <p2 x="1060" y="220"/>
+      <p1 x="160" y="540"/>
+      <p2 x="160" y="560"/>
+    </wire>
+    <wire>
+      <p1 x="1060" y="320"/>
+      <p2 x="1060" y="340"/>
     </wire>
     <wire>
       <p1 x="420" y="320"/>
@@ -1837,6 +1873,10 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
     </wire>
     <wire>
       <p1 x="560" y="640"/>
+      <p2 x="560" y="660"/>
+    </wire>
+    <wire>
+      <p1 x="560" y="660"/>
       <p2 x="560" y="680"/>
     </wire>
     <wire>
@@ -1848,12 +1888,8 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
       <p2 x="1200" y="1020"/>
     </wire>
     <wire>
-      <p1 x="820" y="600"/>
-      <p2 x="820" y="640"/>
-    </wire>
-    <wire>
-      <p1 x="820" y="200"/>
-      <p2 x="820" y="260"/>
+      <p1 x="820" y="580"/>
+      <p2 x="820" y="620"/>
     </wire>
     <wire>
       <p1 x="180" y="1160"/>
@@ -1864,8 +1900,8 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
       <p2 x="180" y="920"/>
     </wire>
     <wire>
-      <p1 x="1080" y="200"/>
-      <p2 x="1080" y="280"/>
+      <p1 x="1080" y="320"/>
+      <p2 x="1080" y="400"/>
     </wire>
     <wire>
       <p1 x="440" y="1160"/>
@@ -1888,10 +1924,6 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
       <p2 x="700" y="1280"/>
     </wire>
     <wire>
-      <p1 x="960" y="220"/>
-      <p2 x="960" y="240"/>
-    </wire>
-    <wire>
       <p1 x="960" y="740"/>
       <p2 x="960" y="800"/>
     </wire>
@@ -1912,20 +1944,20 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
       <p2 x="580" y="880"/>
     </wire>
     <wire>
-      <p1 x="840" y="600"/>
-      <p2 x="840" y="620"/>
+      <p1 x="200" y="1160"/>
+      <p2 x="200" y="1220"/>
     </wire>
     <wire>
-      <p1 x="840" y="200"/>
-      <p2 x="840" y="220"/>
+      <p1 x="200" y="540"/>
+      <p2 x="200" y="600"/>
+    </wire>
+    <wire>
+      <p1 x="840" y="580"/>
+      <p2 x="840" y="600"/>
     </wire>
     <wire>
       <p1 x="840" y="400"/>
       <p2 x="840" y="420"/>
-    </wire>
-    <wire>
-      <p1 x="200" y="1160"/>
-      <p2 x="200" y="1220"/>
     </wire>
     <wire>
       <p1 x="460" y="500"/>
@@ -1942,6 +1974,10 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
     <wire>
       <p1 x="460" y="520"/>
       <p2 x="460" y="640"/>
+    </wire>
+    <wire>
+      <p1 x="1100" y="480"/>
+      <p2 x="1100" y="500"/>
     </wire>
     <wire>
       <p1 x="-80" y="260"/>
@@ -1968,6 +2004,14 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
       <p2 x="980" y="760"/>
     </wire>
     <wire>
+      <p1 x="1240" y="520"/>
+      <p2 x="1240" y="660"/>
+    </wire>
+    <wire>
+      <p1 x="220" y="540"/>
+      <p2 x="220" y="560"/>
+    </wire>
+    <wire>
       <p1 x="220" y="1160"/>
       <p2 x="220" y="1220"/>
     </wire>
@@ -1976,12 +2020,24 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
       <p2 x="220" y="240"/>
     </wire>
     <wire>
+      <p1 x="220" y="560"/>
+      <p2 x="220" y="640"/>
+    </wire>
+    <wire>
       <p1 x="860" y="800"/>
       <p2 x="860" y="820"/>
     </wire>
     <wire>
-      <p1 x="1120" y="200"/>
-      <p2 x="1120" y="220"/>
+      <p1 x="1120" y="320"/>
+      <p2 x="1120" y="340"/>
+    </wire>
+    <wire>
+      <p1 x="1120" y="540"/>
+      <p2 x="1120" y="580"/>
+    </wire>
+    <wire>
+      <p1 x="1120" y="580"/>
+      <p2 x="1120" y="600"/>
     </wire>
     <wire>
       <p1 x="480" y="900"/>
@@ -2008,12 +2064,16 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
       <p2 x="360" y="1220"/>
     </wire>
     <wire>
+      <p1 x="360" y="600"/>
+      <p2 x="360" y="660"/>
+    </wire>
+    <wire>
       <p1 x="360" y="800"/>
       <p2 x="360" y="820"/>
     </wire>
     <wire>
-      <p1 x="1260" y="280"/>
-      <p2 x="1260" y="300"/>
+      <p1 x="1260" y="400"/>
+      <p2 x="1260" y="420"/>
     </wire>
     <wire>
       <p1 x="620" y="780"/>
@@ -2028,16 +2088,12 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
       <p2 x="240" y="380"/>
     </wire>
     <wire>
-      <p1 x="880" y="200"/>
-      <p2 x="880" y="240"/>
-    </wire>
-    <wire>
       <p1 x="880" y="820"/>
       <p2 x="880" y="840"/>
     </wire>
     <wire>
-      <p1 x="1140" y="200"/>
-      <p2 x="1140" y="280"/>
+      <p1 x="1140" y="320"/>
+      <p2 x="1140" y="400"/>
     </wire>
     <wire>
       <p1 x="500" y="900"/>
@@ -2052,8 +2108,12 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
       <p2 x="-120" y="400"/>
     </wire>
     <wire>
-      <p1 x="760" y="600"/>
-      <p2 x="760" y="660"/>
+      <p1 x="120" y="820"/>
+      <p2 x="120" y="840"/>
+    </wire>
+    <wire>
+      <p1 x="760" y="580"/>
+      <p2 x="760" y="640"/>
     </wire>
     <wire>
       <p1 x="760" y="840"/>
@@ -2066,10 +2126,6 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
     <wire>
       <p1 x="760" y="1320"/>
       <p2 x="760" y="1360"/>
-    </wire>
-    <wire>
-      <p1 x="120" y="820"/>
-      <p2 x="120" y="840"/>
     </wire>
     <wire>
       <p1 x="380" y="1160"/>
@@ -2088,12 +2144,8 @@ AAAAAAAA --&gt;&gt; Endereco do operando / valor</string>
       <p2 x="380" y="840"/>
     </wire>
     <wire>
-      <p1 x="1020" y="560"/>
-      <p2 x="1020" y="600"/>
-    </wire>
-    <wire>
       <p1 x="1020" y="440"/>
-      <p2 x="1020" y="540"/>
+      <p2 x="1020" y="520"/>
     </wire>
   </wires>
   <measurementOrdering/>
