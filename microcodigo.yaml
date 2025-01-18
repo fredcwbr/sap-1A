@@ -1,13 +1,99 @@
-# Codigo Fonte do Microcodigo 
-#
-# T0 - Fetch Inst
-#
-T0 PC_E RIns_E 
-#
-#  Instrucao LD ACC
-# LD Acc 
-TN+1 DAddr_E RRam_E 
-TN+1 DRam_E ACC_E
-TN+1 PCCNT_E
-TN+1 NXT_I
-
+---
+controlBusBits:
+    - &JMP_e  0
+    - &PCCNT_e 1
+    - &PCCOUT_e 2
+    - &NXT_I 3
+    - &RInst_E 4
+    - &DIRECTAddr_e 5
+    - &ADDRRAM_e 6
+    - &ACC_E 7
+    - &ALU_RSLT_e 8
+    - &ALU_OUT_e 9
+    - &RAM_e 10
+    - &IO_e  11
+    - &ALU_SUB 12
+    - &ALU_INV 13
+    - &ALU_CYIN 14
+    - &WR_RD 15
+    - &JZ_e 16
+    - &JNEG_e 17
+# Fetch cycle
+T0: &T0
+    - *PCCOUT_e
+    - *RInst_E
+DADDRAM: &DADDRAM
+    - *DIRECTAddr_e
+    - *ADDRRAM_e
+# Variable instruction cycle end
+TF: &TFIM
+    - *NXT_I
+# Load Immediate memory address register
+LDMA: &ldma
+    - *T0
+    - *DADDRAM
+    - - *PCCNT_e
+    - - *NXT_I
+# Load Immediate value @RAMADDREG
+LDIRAM:
+    - *T0
+    - - *DIRECTAddr_e
+      - *RAM_e
+    - - *PCCNT_e
+    - - *NXT_I
+# Load Immediate ACCUMULATOR
+LDIACC:
+    - *T0
+    - - *DIRECTAddr_e
+      - *ACC_E
+    - - *PCCNT_e
+    - - *NXT_I  
+# Load Immediate ACCUMULATOR
+LDRAM2ACC:
+    - *T0
+    - *DADDRAM
+    - - *ACC_E
+      - *RAM_e
+    - - *PCCNT_e
+    - - *NXT_I
+# ADD ACC to RAM @RAMADDREG
+ADD:
+    - *T0
+    - *DADDRAM
+    - - *ALU_RSLT_e
+      - *RAM_e
+    - - *PCCNT_e
+    - - *NXT_I
+SUB:
+    - *T0
+    - *DADDRAM
+    - - *ALU_RSLT_e
+      - *RAM_e
+      - *ALU_SUB
+    - - *PCCNT_e
+    - - *NXT_I
+ST:    
+    - *T0
+    - *DADDRAM
+    - - *ALU_OUT_e
+      - *RAM_e
+      - *WR_RD
+    - - *PCCNT_e
+    - - *NXT_I
+JMP:
+    - *T0
+    - - *DIRECTAddr_e
+      - *JMP_e
+    - - *NXT_I
+JZ:
+    - *T0
+    - - *PCCNT_e
+    - - *DIRECTAddr_e
+      - *JZ_e
+    - - *NXT_I
+JNEG:
+    - *T0
+    - - *PCCNT_e
+    - - *DIRECTAddr_e
+      - *JNEG_e
+    - - *NXT_I
