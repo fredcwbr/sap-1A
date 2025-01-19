@@ -18,6 +18,7 @@ controlBusBits:
   - &WR_RD 15
   - &JZ_e 16
   - &JNEG_e 17
+  - &ADDIO_e 18
 # Fetch cycle
 CDAuxiliar:
   T0: &T0
@@ -27,6 +28,10 @@ CDAuxiliar:
   DADDRAM: &DADDRAM
     - *DIRECTAddr_e
     - *ADDRRAM_e
+    - *ALU_INV
+  DADDRAIO: &DADDRIO
+    - *DIRECTAddr_e
+    - *ADDIO_e
     - *ALU_INV
   # Variable instruction cycle end
   TF: &TFIM
@@ -148,5 +153,28 @@ opCodes:
         - *ALU_INV
         - *JNEG_e
       - *TFIM
+
+  IOR:
+    cdInstrucao: 12
+    uCodigo:
+      - *T0
+      - *DADDRIO
+      - - *WR_RD
+        - *ALU_INV
+        - *IO_e
+        - *RAM_e
+        - *PCCNT_e
+      - *TFIM
+  IOW:
+    cdInstrucao: 13
+    uCodigo:
+      - *T0
+      - *DADDRIO
+      - - *ALU_INV
+        - *IO_e
+        - *RAM_e
+        - *PCCNT_e
+      - *TFIM
+
 # Popula todos os opCodes nao definidos com o NOP
 opCodeInvalido: *NOP
