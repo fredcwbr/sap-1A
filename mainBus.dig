@@ -107,11 +107,12 @@
         </entry>
         <entry>
           <string>Data</string>
-          <data>14,7*0,2014,2060,2482,2008,4*2000,2014,20a0,2002,2008,4*2000,2014
-,2062,2008,5*2000,2014,2000,a420,2002,2008,2000,2000,2000,2014
-,2060,2500,2002,2008,2000,2000,2000,2014,2060,a600,2002,2008,2000,2000,2000
-,14,7*0,14,7*0,14,7*0,14,7*0,14,7*0,14,7*0,14,7*0,14,7*0,2014
-,2008,6*2000</data>
+          <data>2014,2002,2008,5*0,2014,2060,2,2008,4*0,2014,a420,2002,2008,4*0
+,2014,20a0,2002,2008,4*0,2014,2060,2480,2,2008,0,0,0,2014,2060
+,2500,2,2008,0,0,0,2014,2060,3500,2,2008,0,0,0,2014,2060,a600
+,2002,2008,0,0,0,2014,21,2008,5*0,2014,2,12020,2008,4*0,2014,2
+,22020,2008,4*0,2014,2002,2008,5*0,2014,2002,2008,5*0,2014,2002
+,2008,5*0,2014,2002,2008,5*0,2014,2008</data>
         </entry>
         <entry>
           <string>Inputs</string>
@@ -141,7 +142,7 @@
         </entry>
         <entry>
           <string>Data</string>
-          <data>223,334,113,134,221,115,246,225,256,f</data>
+          <data>223,331,112,131,272,335,247,135,257,f</data>
         </entry>
       </elementAttributes>
       <pos x="320" y="460"/>
@@ -1461,16 +1462,16 @@ da Instrucao</string>
       <elementName>Driver</elementName>
       <elementAttributes>
         <entry>
-          <string>flipSelPos</string>
-          <boolean>true</boolean>
+          <string>rotation</string>
+          <rotation rotation="3"/>
         </entry>
         <entry>
           <string>Bits</string>
           <int>8</int>
         </entry>
         <entry>
-          <string>rotation</string>
-          <rotation rotation="3"/>
+          <string>flipSelPos</string>
+          <boolean>true</boolean>
         </entry>
       </elementAttributes>
       <pos x="1080" y="560"/>

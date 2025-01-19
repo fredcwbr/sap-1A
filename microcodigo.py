@@ -1,10 +1,15 @@
 import csv
 import sys
+import yaml
 
 
+
+"""
+Versao usando o uCodigo em yaml .,
+
+"""
 arquivoMicrocodigo = "microcodigo.hex"
-#ih = IntelHex()
-#ih.padding = 0x00 
+
 
 """
 Formato do arquivo hex do Digital HNeeman
@@ -31,70 +36,56 @@ class hneemanHex:
                     Add = A
                print( '{:4X}'.format( V ) , file=F)
                Add = Add + 1
-                
-            
+
+def uInstrucao( codigo, passos ):
+    # Tempos dessa instrucao
+    uC = {}
+    print( codigo, passos )
+    for P in range(len(passos) ):
+        addruInstr = int( '0b{:04b}{:03b}'.format(codigo,P), 2)
+        bC = 0
+        for x in [ 1<<b for b in passos[P] ]:
+            bC |= x
+        uC[addruInstr] =  bC
+        print(  codigo, P, '@{:04b}{:03b}'.format(codigo, P) , '{:016b}'.format(bC), '{:04X}'.format(bC) )
+    return uC
      
+# Fonte do microcodigo
+uCodigoFonte = 'microcodigo.yaml'
+with open(uCodigoFonte,'rt', encoding='utf-8') as uC:
+    uCodigo = yaml.safe_load(uC)
+
+# 
+# controlBusBits
+#
+# Esta no yaml e agora tem o controle do barramento
+# os Bits estao codificados com as instrucoes e as
+# micro instrucoes de HW.,
+# Ajudara na sintaxe para o assembler,.
 
 
-FMicroCodigo = 'microcodigo.csv'
-
-
-bitsControle = {
-       0: 'PCLD',
-       1: 'PCCNT_e',
-       2: 'PCCOUT_e',
-       3: 'NXT_I',
-       4: 'RInst_E',
-       5: 'DIRECTAddr_e',
-       6: 'ADDRRAM_e',
-       7: 'ACC_E',
-       8: 'ALU_RSLT_e',
-       9: 'ALU_OUT_e',
-      10: 'RAM_e',
-      11: 'IO_e',
-      12: 'ALU_SUB',
-      13: 'ALU_INV',
-      14: 'ALU_CYIN',
-      15: 'WR/~RD'
-       }
+# LUT  do microcodigo para o DIGITAL
+FMicroCodigo = 'microcodigo.hex'
+F = hneemanHex(arquivoMicrocodigo)
+#
 
 nBitsInstrucao = 4
 # Indice o uCodigo = Codigo da instrucao
 # Total de instrucoes possiveis >> 2^nBitsInstrucao -1 .
 # o RANGE no python é de dominio aberto , ... até (n-1) comecando em 0 ... 
 
-F = hneemanHex(arquivoMicrocodigo)
-
 instrPopulados = []
-with open(FMicroCodigo, mode='r') as csv_file:
-    csv_reader = csv.DictReader(csv_file,  delimiter='\t')
-    line_count = 0
-    for row in csv_reader:
-        if row['Id'] not in ['x','I','X']:
-            # despreza comentarios
-            continue
-        # cria o micro codigo
-        I = row['Instrucao']
-        instrPopulados.append(int(I))
-        T = row['Tempo']
-        # combina os 16 bits do barramento de controle
-        #                
-        addruInstr = int( '0b{:04b}{:03b}'.format(int(I),int(T)) , 2)
-
-        for BT in [1,0]:
-                print( [ row[bitsControle[(BT*8)+ndx-1]] for ndx in range(8,0,-1) ] )
-                
-                # bControle = '0b'+''.join([ row[bitsControle[(BT*8)+ndx]] ])
-        bControle = '0b'+''.join([ row[bitsControle[(BT*8)+ndx-1]] for BT in [1,0] for ndx in range(8,0,-1) ])                
-        # bControle = '0b'+''.join([ row[bitsControle[(BT*8)+ndx]] for BT in [1,0] for ndx in range(0,8) ])
-        
-        print(  '{:04b}'.format(int(I)), addruInstr , addruInstr ,'{:04b}'.format(int(I)) ,bControle, '{:03b}'.format(int(T)) ,bControle  )
-        F.addValue( addruInstr,  int(bControle, 2) )
+for opCd, Det in uCodigo['opCodes'].items():
+    if Det['cdInstrucao'] is None:
+        continue
+    instrPopulados.append(Det['cdInstrucao'])
+    for K,V in uInstrucao( Det['cdInstrucao'], Det['uCodigo'] ).items():
+        F.addValue( K,V )
 
 S = [ X for X in range(16) if X not in instrPopulados ]
 for I in S:
-    addruInstr = int( '0b{:04b}{:03b}'.format(int(I),0) , 2)
-    F.addValue( addruInstr,  0b10100 )
+    for K,V in uInstrucao( I, uCodigo['opCodes']['NOP']['uCodigo'] ).items():
+        F.addValue( K,  V  )
     
         
 F.geraHex()

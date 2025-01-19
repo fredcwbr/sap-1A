@@ -1,99 +1,152 @@
 ---
 controlBusBits:
-    - &JMP_e  0
-    - &PCCNT_e 1
-    - &PCCOUT_e 2
-    - &NXT_I 3
-    - &RInst_E 4
-    - &DIRECTAddr_e 5
-    - &ADDRRAM_e 6
-    - &ACC_E 7
-    - &ALU_RSLT_e 8
-    - &ALU_OUT_e 9
-    - &RAM_e 10
-    - &IO_e  11
-    - &ALU_SUB 12
-    - &ALU_INV 13
-    - &ALU_CYIN 14
-    - &WR_RD 15
-    - &JZ_e 16
-    - &JNEG_e 17
+  - &JMP_e  0
+  - &PCCNT_e 1
+  - &PCCOUT_e 2
+  - &NXT_I 3
+  - &RInst_E 4
+  - &DIRECTAddr_e 5
+  - &ADDRRAM_e 6
+  - &ACC_E 7
+  - &ALU_RSLT_e 8
+  - &ALU_OUT_e 9
+  - &RAM_e 10
+  - &IO_e  11
+  - &ALU_SUB 12
+  - &ALU_INV 13
+  - &ALU_CYIN 14
+  - &WR_RD 15
+  - &JZ_e 16
+  - &JNEG_e 17
 # Fetch cycle
-T0: &T0
+CDAuxiliar:
+  T0: &T0
     - *PCCOUT_e
     - *RInst_E
-DADDRAM: &DADDRAM
+    - *ALU_INV
+  DADDRAM: &DADDRAM
     - *DIRECTAddr_e
     - *ADDRRAM_e
-# Variable instruction cycle end
-TF: &TFIM
+    - *ALU_INV
+  # Variable instruction cycle end
+  TF: &TFIM
     - *NXT_I
-# Load Immediate memory address register
-LDMA: &ldma
-    - *T0
-    - *DADDRAM
-    - - *PCCNT_e
-    - - *NXT_I
-# Load Immediate value @RAMADDREG
-LDIRAM:
-    - *T0
-    - - *DIRECTAddr_e
-      - *RAM_e
-    - - *PCCNT_e
-    - - *NXT_I
-# Load Immediate ACCUMULATOR
-LDIACC:
-    - *T0
-    - - *DIRECTAddr_e
-      - *ACC_E
-    - - *PCCNT_e
-    - - *NXT_I  
-# Load Immediate ACCUMULATOR
-LDRAM2ACC:
-    - *T0
-    - *DADDRAM
-    - - *ACC_E
-      - *RAM_e
-    - - *PCCNT_e
-    - - *NXT_I
-# ADD ACC to RAM @RAMADDREG
-ADD:
-    - *T0
-    - *DADDRAM
-    - - *ALU_RSLT_e
-      - *RAM_e
-    - - *PCCNT_e
-    - - *NXT_I
-SUB:
-    - *T0
-    - *DADDRAM
-    - - *ALU_RSLT_e
-      - *RAM_e
-      - *ALU_SUB
-    - - *PCCNT_e
-    - - *NXT_I
-ST:    
-    - *T0
-    - *DADDRAM
-    - - *ALU_OUT_e
-      - *RAM_e
-      - *WR_RD
-    - - *PCCNT_e
-    - - *NXT_I
-JMP:
-    - *T0
-    - - *DIRECTAddr_e
-      - *JMP_e
-    - - *NXT_I
-JZ:
-    - *T0
-    - - *PCCNT_e
-    - - *DIRECTAddr_e
-      - *JZ_e
-    - - *NXT_I
-JNEG:
-    - *T0
-    - - *PCCNT_e
-    - - *DIRECTAddr_e
-      - *JNEG_e
-    - - *NXT_I
+    - *ALU_INV
+# NOP é usada para o uCodigos de instrucao ainda nao implementadas
+# Simplismente faz o fetch e segue para o proximo
+opCodes:
+  NOP: &NOP 
+    cdInstrucao: ~
+    uCodigo:
+      - *T0
+      - - *PCCNT_e
+        - *ALU_INV
+      - *TFIM
+  HLT: 
+    cdInstrucao: 15
+    uCodigo:
+      - *T0
+      - *TFIM
+  # Load Immediate memory address register
+  LDMA: &ldma
+    cdInstrucao: 1
+    uCodigo:
+      - *T0
+      - *DADDRAM
+      - - *PCCNT_e
+      - *TFIM
+  # Load Immediate value @RAMADDREG
+  LDIRAM:
+    cdInstrucao: 2
+    uCodigo:
+      - *T0
+      - - *RAM_e
+        - *DIRECTAddr_e
+        - *WR_RD
+        - *ALU_INV
+      - - *PCCNT_e
+        - *ALU_INV
+      - *TFIM
+  # Load Immediate ACCUMULATOR
+  LDIACC:
+    cdInstrucao: 3
+    uCodigo:
+      - *T0
+      - - *DIRECTAddr_e
+        - *ACC_E
+        - *ALU_INV
+      - - *PCCNT_e
+        - *ALU_INV
+      - *TFIM
+  # Load Immediate ACCUMULATOR
+  LDRAM2ACC:
+    cdInstrucao: 4
+    uCodigo:
+      - *T0
+      - *DADDRAM
+      - - *ACC_E
+        - *RAM_e
+        - *ALU_INV
+      - - *PCCNT_e
+      - *TFIM
+  # ADD ACC to RAM @RAMADDREG
+  ADD:
+    cdInstrucao: 5
+    uCodigo:
+      - *T0
+      - *DADDRAM
+      - - *ALU_RSLT_e
+        - *RAM_e
+        - *ALU_INV
+      - - *PCCNT_e
+      - *TFIM
+  SUB:
+    cdInstrucao: 6
+    uCodigo:
+      - *T0
+      - *DADDRAM
+      - - *ALU_RSLT_e
+        - *RAM_e
+        - *ALU_SUB
+        - *ALU_INV
+      - - *PCCNT_e
+      - *TFIM
+  ST:
+    cdInstrucao: 7
+    uCodigo:
+      - *T0
+      - *DADDRAM
+      - - *ALU_OUT_e
+        - *RAM_e
+        - *WR_RD
+        - *ALU_INV
+      - - *PCCNT_e
+        - *ALU_INV
+      - *TFIM
+  JMP:
+    cdInstrucao: 8
+    uCodigo:
+      - *T0
+      - - *DIRECTAddr_e
+        - *JMP_e
+      - *TFIM
+  JZ:
+    cdInstrucao: 9
+    uCodigo:
+      - *T0
+      - - *PCCNT_e
+      - - *DIRECTAddr_e
+        - *ALU_INV
+        - *JZ_e
+      - *TFIM
+  JNEG:
+    cdInstrucao: 10
+    uCodigo:
+      - *T0
+      - - *PCCNT_e
+      - - *DIRECTAddr_e
+        - *ALU_INV
+        - *JNEG_e
+      - *TFIM
+# Popula todos os opCodes nao definidos com o NOP
+opCodeInvalido: *NOP
