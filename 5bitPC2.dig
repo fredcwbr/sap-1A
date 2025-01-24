@@ -49,16 +49,6 @@
       <pos x="100" y="-60"/>
     </visualElement>
     <visualElement>
-      <elementName>Seven-Seg-Hex</elementName>
-      <elementAttributes>
-        <entry>
-          <string>segSize</string>
-          <int>1</int>
-        </entry>
-      </elementAttributes>
-      <pos x="1620" y="-1220"/>
-    </visualElement>
-    <visualElement>
       <elementName>Splitter</elementName>
       <elementAttributes>
         <entry>
@@ -109,7 +99,11 @@
         </entry>
         <entry>
           <string>Input Splitting</string>
-          <string>1,1,1,1,1,1,2</string>
+          <string>1,1,1,1,1,1</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>6</string>
         </entry>
       </elementAttributes>
       <pos x="440" y="140"/>
@@ -355,30 +349,6 @@
       <elementName>Tunnel</elementName>
       <elementAttributes>
         <entry>
-          <string>rotation</string>
-          <rotation rotation="2"/>
-        </entry>
-        <entry>
-          <string>NetName</string>
-          <string>A0_d</string>
-        </entry>
-      </elementAttributes>
-      <pos x="1380" y="-1040"/>
-    </visualElement>
-    <visualElement>
-      <elementName>Tunnel</elementName>
-      <elementAttributes>
-        <entry>
-          <string>NetName</string>
-          <string>CLK</string>
-        </entry>
-      </elementAttributes>
-      <pos x="1720" y="-960"/>
-    </visualElement>
-    <visualElement>
-      <elementName>Tunnel</elementName>
-      <elementAttributes>
-        <entry>
           <string>NetName</string>
           <string>CLK</string>
         </entry>
@@ -450,40 +420,6 @@
       <pos x="220" y="-60"/>
     </visualElement>
     <visualElement>
-      <elementName>Splitter</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Input Splitting</string>
-          <string>6,2</string>
-        </entry>
-        <entry>
-          <string>Output Splitting</string>
-          <string>4,4</string>
-        </entry>
-      </elementAttributes>
-      <pos x="1500" y="-1040"/>
-    </visualElement>
-    <visualElement>
-      <elementName>Seven-Seg-Hex</elementName>
-      <elementAttributes>
-        <entry>
-          <string>segSize</string>
-          <int>1</int>
-        </entry>
-      </elementAttributes>
-      <pos x="1540" y="-1220"/>
-    </visualElement>
-    <visualElement>
-      <elementName>Ground</elementName>
-      <elementAttributes>
-        <entry>
-          <string>Bits</string>
-          <int>2</int>
-        </entry>
-      </elementAttributes>
-      <pos x="1480" y="-960"/>
-    </visualElement>
-    <visualElement>
       <elementName>Out</elementName>
       <elementAttributes>
         <entry>
@@ -492,7 +428,7 @@
         </entry>
         <entry>
           <string>Bits</string>
-          <int>8</int>
+          <int>6</int>
         </entry>
       </elementAttributes>
       <pos x="520" y="140"/>
@@ -594,14 +530,35 @@
       <pos x="360" y="-60"/>
     </visualElement>
     <visualElement>
-      <elementName>NotConnected</elementName>
+      <elementName>Testcase</elementName>
       <elementAttributes>
         <entry>
-          <string>Bits</string>
-          <int>2</int>
+          <string>Label</string>
+          <string>TesteBasico</string>
+        </entry>
+        <entry>
+          <string>Testdata</string>
+          <testData>
+            <dataString>CLK CNTe_a CLR Le_a Re_a   PC_in PC_out 
+loop(A,8)
+let Bi = random(32);
+0    0     0    1    1    (Bi)    (Bi)	
+C    0     0    1    1    (Bi)    (Bi)	
+end loop
+C    0     1    0    1     X      0
+loop(A,4)
+let Bi = random(32);
+C    1     0    0    1   (Bi)  (A+1)	
+end loop
+let Bi = random(32);
+0    0     0    1    1    (Bi)    (Bi)	
+loop(A,6)
+C    1     0    0    1   0  (A+1+Bi)	
+end loop</dataString>
+          </testData>
         </entry>
       </elementAttributes>
-      <pos x="440" y="-40"/>
+      <pos x="1400" y="-1120"/>
     </visualElement>
   </visualElements>
   <wires>
@@ -728,14 +685,6 @@
     <wire>
       <p1 x="460" y="140"/>
       <p2 x="520" y="140"/>
-    </wire>
-    <wire>
-      <p1 x="1520" y="-1040"/>
-      <p2 x="1660" y="-1040"/>
-    </wire>
-    <wire>
-      <p1 x="1380" y="-1040"/>
-      <p2 x="1500" y="-1040"/>
     </wire>
     <wire>
       <p1 x="-540" y="-400"/>
@@ -1302,18 +1251,6 @@
       <p2 x="400" y="-60"/>
     </wire>
     <wire>
-      <p1 x="1600" y="-1020"/>
-      <p2 x="1680" y="-1020"/>
-    </wire>
-    <wire>
-      <p1 x="1520" y="-1020"/>
-      <p2 x="1580" y="-1020"/>
-    </wire>
-    <wire>
-      <p1 x="1480" y="-1020"/>
-      <p2 x="1500" y="-1020"/>
-    </wire>
-    <wire>
       <p1 x="-140" y="-380"/>
       <p2 x="-120" y="-380"/>
     </wire>
@@ -1340,10 +1277,6 @@
     <wire>
       <p1 x="260" y="60"/>
       <p2 x="440" y="60"/>
-    </wire>
-    <wire>
-      <p1 x="1680" y="-960"/>
-      <p2 x="1720" y="-960"/>
     </wire>
     <wire>
       <p1 x="-860" y="-640"/>
@@ -1458,14 +1391,6 @@
       <p2 x="1040" y="-520"/>
     </wire>
     <wire>
-      <p1 x="1680" y="-1080"/>
-      <p2 x="1680" y="-1020"/>
-    </wire>
-    <wire>
-      <p1 x="1680" y="-1020"/>
-      <p2 x="1680" y="-960"/>
-    </wire>
-    <wire>
       <p1 x="400" y="-100"/>
       <p2 x="400" y="-60"/>
     </wire>
@@ -1574,10 +1499,6 @@
       <p2 x="940" y="-800"/>
     </wire>
     <wire>
-      <p1 x="1580" y="-1080"/>
-      <p2 x="1580" y="-1020"/>
-    </wire>
-    <wire>
       <p1 x="560" y="-520"/>
       <p2 x="560" y="-480"/>
     </wire>
@@ -1596,10 +1517,6 @@
     <wire>
       <p1 x="440" y="-600"/>
       <p2 x="440" y="-460"/>
-    </wire>
-    <wire>
-      <p1 x="440" y="-40"/>
-      <p2 x="440" y="20"/>
     </wire>
     <wire>
       <p1 x="440" y="-460"/>
@@ -1638,10 +1555,6 @@
       <p2 x="700" y="-400"/>
     </wire>
     <wire>
-      <p1 x="1600" y="-1080"/>
-      <p2 x="1600" y="-1020"/>
-    </wire>
-    <wire>
       <p1 x="1600" y="-760"/>
       <p2 x="1600" y="-700"/>
     </wire>
@@ -1672,10 +1585,6 @@
     <wire>
       <p1 x="-200" y="-560"/>
       <p2 x="-200" y="-480"/>
-    </wire>
-    <wire>
-      <p1 x="1480" y="-1020"/>
-      <p2 x="1480" y="-960"/>
     </wire>
     <wire>
       <p1 x="460" y="-440"/>
@@ -1868,10 +1777,6 @@
     <wire>
       <p1 x="760" y="-560"/>
       <p2 x="760" y="-480"/>
-    </wire>
-    <wire>
-      <p1 x="1660" y="-1080"/>
-      <p2 x="1660" y="-1040"/>
     </wire>
     <wire>
       <p1 x="380" y="-1120"/>
